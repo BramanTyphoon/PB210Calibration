@@ -9,7 +9,7 @@ N.B. You should understand the science behind calibration before using this tool
 ## Installation
 Download the __PB210Calibration.py__ module into a directory on your machine's Python PATH. Then, import into your desired script
 ```
-import PB210Calibration.py
+import PB210Calibration
 ```
 That's it!  You can look at and run __PB210Calibration_example.py__ for a canonical example of Lead-210 calibration and to test that the module is working on your machine.
 
