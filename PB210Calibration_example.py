@@ -4,7 +4,7 @@
 
 import numpy as np
 from matplotlib import pyplot as plt
-import pb210_calibration as pbcal
+import PB210Calibration as pbcal
 
 # Use data from Appleby, P.G. (2001) "Chronostratigraphic techniques in
 #   recent sediments." Tracking Environmental Change Using Lake Sediments
@@ -27,7 +27,7 @@ r = np.array([0,0.052,0.044,0.039,0.034,0.063,0.038,0.026,0.029,0.02,0.023,\
 # Depth below which total activity asymptotes to supported/equilibrium activity
 bkgrd = 32.5/100
 
-# Calculate density from Appleby (2001) mass data. pb210_calibration.py will
+# Calculate density from Appleby (2001) mass data. PB210Calibration.py will
 # calculate cumulative dry weight for you
 density = np.diff(mass)/np.diff(depth)
 for ii in np.arange(1,np.size(density)):
@@ -35,7 +35,7 @@ for ii in np.arange(1,np.size(density)):
 density = np.hstack((np.array([density[0]]),density))
 
 # Instantiate a CRS model with the 210Pb data
-pbwincrs = pbcal.pb210_calibration(total[1:],error[1:],depth[1:],density[1:],bkgrd,'crs')
+pbwincrs = pbcal.PB210Calibration(total[1:],error[1:],depth[1:],density[1:],bkgrd,'crs')
 pbwincrs.calibrate()
 pbwincrs.plot([])
 
@@ -53,7 +53,7 @@ plt.show()
 
 
 # Do the same with a CIC model
-pbwincic = pbcal.pb210_calibration(total[1:],error[1:],depth[1:],density[1:],bkgrd,'cic')
+pbwincic = pbcal.PB210Calibration(total[1:],error[1:],depth[1:],density[1:],bkgrd,'cic')
 pbwincic.calibrate()
 pbwincic.plot([])
 
